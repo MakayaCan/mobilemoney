@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Dashboard</h2>
+
+<a href="/adverts/new/">Post Advert</a>
+
+<ul>
+{% for ad in adverts %}
+    <li>{{ ad.title }} - ${{ ad.price }}</li>
+{% empty %}
+    <li>No adverts</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

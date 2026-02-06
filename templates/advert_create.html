@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Create Advert</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <input name="title" placeholder="Title"><br>
+    <textarea name="description"></textarea><br>
+    <input name="price" placeholder="Price"><br>
+    <button type="submit">Post</button>
+</form>
+
+{% endblock %}
