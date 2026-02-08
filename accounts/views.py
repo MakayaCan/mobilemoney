@@ -14,6 +14,5 @@ def register(request):
         form = RegisterForm()
 
     return render(request, "register.html", {"form": form})
-from django.shortcuts import render
 
-# Create your views here.
+

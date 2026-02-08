@@ -1,8 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
+
 <h2>Access Locked</h2>
-<p>You need a $1 monthly subscription.</p>
+
+<p>Subscription fee: <strong>${{ amount }}</strong></p>
 
 <p>Dial:</p>
-<p><strong>*153*2*2*072813*1#</strong></p>
+<p><strong>*153*2*2*072813*{{ amount }}#</strong></p>
+
+<p>
+Use reference:<br>
+<strong style="font-size:20px;">{{ reference }}</strong>
+</p>
+
+<p>
+After payment, access will unlock automatically.
+</p>
+
+
+
 {% endblock %}

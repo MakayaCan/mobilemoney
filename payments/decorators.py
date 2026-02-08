@@ -8,16 +8,14 @@ def subscription_required(view_func):
         if not request.user.is_authenticated:
             return redirect("login")
 
-        sub = Subscription.objects.filter(
+        active = Subscription.objects.filter(
             user=request.user,
-            plan="ACCESS",
             active=True,
-            expires_at__gt=timezone.now(),
-        ).first()
+            expires_at__gt=timezone.now()
+        ).exists()
 
-        if not sub:
+        if not active:
             return redirect("access_locked")
 
         return view_func(request, *args, **kwargs)
-
     return wrapper
